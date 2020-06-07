@@ -2,7 +2,7 @@
 FROM openjdk:8-jre-alpine
 
 # add metadata to an image
-LABEL maintainer="Robert Gomez <rrgt19@gmail.com>"
+LABEL maintainer="Robert Gomez <test@gmail.com>"
 
 # adding a volume to save the logs
 VOLUME /tmp
