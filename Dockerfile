@@ -10,11 +10,13 @@ VOLUME /tmp
 # copy a local file into the container
 COPY build/libs/demo-0.0.1-SNAPSHOT.jar /app.jar
 
-# the app will listen on port 8080
-EXPOSE 8080
-
-# environment variable
+# environment variables
 ENV JAVA_OPTS=""
+# default if no custom port is specified by command line
+ENV PORT=8080
+
+# the app will listen on port ####
+EXPOSE ${PORT}
 
 # tells Docker what it should execute when you run that container
-ENTRYPOINT ["sh", "-c","java -Djava.security.egd=file:/dev/./urandom $JAVA_OPTS -jar /app.jar"]
+ENTRYPOINT ["sh", "-c","java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
